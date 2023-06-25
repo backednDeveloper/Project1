@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 public class TeacherServise {
-    private static final TeacherReporsitory reporsitory = null;
+    private static final TeacherReporsitory reporsitory = new TeacherReporsitory();
     public List<Teacher> getAllTeacher(){
         return reporsitory.getAllTeacher();
     }

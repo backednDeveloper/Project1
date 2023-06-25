@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/teacher")
 public class TeacherController {
-    private static TeacherServise teacherservise ;
+    private static TeacherServise teacherservise = new TeacherServise();
     @GetMapping()
     public List<Teacher> getAllTeacher(){
         return teacherservise.getAllTeacher();

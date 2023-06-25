@@ -8,12 +8,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Component
+@Repository
 public class TeacherReporsitory {
     private static final Logger log = LoggerFactory.getLogger(TeacherReporsitory.class);
     private JdbcTemplate template;
@@ -41,7 +43,6 @@ public class TeacherReporsitory {
     public List<Teacher> getTeacherById(int id) {
         String sql = "SELECT * FROM teacher WHERE id = ?";
         List<Teacher> teachers = template.query(sql, new Object[]{id}, rowMapper);
-
         if (teachers.isEmpty()) {
             log.atInfo().log("Teacher has not been available");
         }
